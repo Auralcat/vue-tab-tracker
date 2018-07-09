@@ -11,21 +11,27 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      email: '',
+      email: 'abc',
       password: ''
     }
   },
-    // WATCH hook
-    watch: {
-      email(value) {
-        console.log("Email has changed to", value);
-      },
-      password(value) {
-        console.log("Password has changed to", value);
-      }
+  // WATCH hook
+  watch: {
+    email(value) {
+      console.log("Email has changed to", value);
+    },
+    password(value) {
+      console.log("Password has changed to", value);
     }
+  },
+  /* Run this when the component is loaded */
+  mounted() {
+    setTimeout(() => {
+      this.email = 'Hello email'
+    }, 2000);
+  }
 }
 </script>
 
