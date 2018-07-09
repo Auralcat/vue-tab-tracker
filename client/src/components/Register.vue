@@ -5,32 +5,27 @@
     <br>
     <input name="password" type="password" value="" v-model="password" placeholder="password"/>
     <br>
-    <button>Register</button>
+    <button @click="register">Register</button>
   </div>
 </template>
 
 <script>
+import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data() {
     return {
-      email: 'abc',
+      email: '',
       password: ''
     }
   },
-  // WATCH hook
-  watch: {
-    email(value) {
-      console.log("Email has changed to", value);
-    },
-    password(value) {
-      console.log("Password has changed to", value);
+  methods: {
+    async register() {
+      const response = await AuthenticationService.register({
+        email: this.email,
+        password: this.password
+      })
+      console.log(response.data);
     }
-  },
-  /* Run this when the component is loaded */
-  mounted() {
-    setTimeout(() => {
-      this.email = 'Hello email'
-    }, 2000);
   }
 }
 </script>
