@@ -9,6 +9,7 @@ module.exports = (app) => {
         })
     })
     app.post('/register',
+             // This is a middleware!
              AuthenticationControllerPolicy.register,
              AuthenticationController.register)
 
