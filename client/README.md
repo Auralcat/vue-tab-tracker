@@ -1,6 +1,6 @@
-# vue-tab-tracker
+# vue-tab-tracker-client
 
-> A guitar tab tracker made with Vue.js
+> A Vue.js guitar tab client for our application
 
 ## Build Setup
 
