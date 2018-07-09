@@ -16,7 +16,16 @@ export default {
       email: '',
       password: ''
     }
-  }
+  },
+    // WATCH hook
+    watch: {
+      email(value) {
+        console.log("Email has changed to", value);
+      },
+      password(value) {
+        console.log("Password has changed to", value);
+      }
+    }
 }
 </script>
 
