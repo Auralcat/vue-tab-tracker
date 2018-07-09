@@ -16,18 +16,8 @@ app.use(bodyParser.json())
 // Enable CORS
 app.use(cors())
 
-// Lay the routes
-app.get('/status', (req, res) => {
-    res.send({
-        message: "Hello Express!"
-    })
-})
-
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}, your user was registered, have fun!`
-    })
-})
+// Plug the routes
+require('./routes')(app)
 
 // Start listening
 sequelize.sync()

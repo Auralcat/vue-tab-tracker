@@ -16,3 +16,4 @@ selenium-debug.log
 *.njsproj
 *.sln
 /client/src/router/.tern-port
+/server/src/.tern-port
