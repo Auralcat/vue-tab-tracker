@@ -1,5 +1,5 @@
 const express = require('express')
-const bodyParser = require('bodyParser')
+const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
 
@@ -13,6 +13,13 @@ app.use(bodyParser.json())
 
 // Enable CORS
 app.use(cors())
+
+// Lay the routes
+app.get('/status', (req, res) => {
+    res.send({
+        message: "Hello Express!"
+    })
+})
 
 // Start listening
 app.listen(process.env.PORT | 8081)
