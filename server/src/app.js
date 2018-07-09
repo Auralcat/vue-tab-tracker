@@ -26,5 +26,6 @@ app.post('/register', (req, res) => {
         message: `Hello ${req.body.email}, your user was registered, have fun!`
     })
 })
+
 // Start listening
 app.listen(process.env.PORT | 8081)
