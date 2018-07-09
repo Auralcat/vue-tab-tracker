@@ -5,13 +5,15 @@
         <v-toolbar flat dense class="cyan" dark>
           <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
-        <input name="email" type="email" value="" v-model="email" placeholder="email"/>
-        <br>
-        <input name="password" type="password" value="" v-model="password" placeholder="password"/>
-        <br>
-        <div class="error" v-html="error"></div>
-        <br>
-        <button @click="register">Register</button>
+        <div class="pl-4 pr-4 pt-2 pb-2">
+            <input name="email" type="email" value="" v-model="email" placeholder="email"/>
+            <br>
+            <input name="password" type="password" value="" v-model="password" placeholder="password"/>
+            <br>
+            <div class="error" v-html="error"></div>
+            <br>
+            <v-btn class="cyan" @click="register">Register</v-btn>
+        </div class="pl-4 pr-4 pt-2 pb-2">
       </div>
     </v-flex>
   </v-layout>
