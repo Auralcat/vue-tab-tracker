@@ -1,14 +1,25 @@
 <template>
   <div id="app">
-    <!-- Router views are injected here -->
+    <v-app>
+      <main>
+        <Header/>
+        <v-container fluid>
+          <router-view/>
+        </v-container>
+      </main>
+    </v-app>
     <!-- <img src="./assets/logo.png"> -->
-    <router-view/>
+    <!-- Router views are injected here -->
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Header
+  }
 }
 </script>
 
