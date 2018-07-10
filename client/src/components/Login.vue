@@ -8,6 +8,8 @@
         <div class="pl-4 pr-4 pt-2 pb-2">
           <v-text-field class="my-input-box" label="Email" v-model="email"></v-text-field>
           <!-- Use the :type attr to define a password input -->
+          <!-- Gotta fix this later -->
+          <!-- :append-icon="show1 ? 'visibility_off' : 'visibility'" -->
           <v-text-field
             class="my-input-box"
             label="Password"
@@ -29,7 +31,9 @@ export default {
     return {
       email: '',
       password: '',
-      error: null
+      error: null,
+      /* v-text-field password vars */
+      show1: false
     }
   },
   methods: {
