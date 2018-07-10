@@ -8,8 +8,11 @@
         <div class="pl-4 pr-4 pt-2 pb-2">
           <v-text-field class="my-input-box" label="Email" v-model="email"></v-text-field>
           <!-- Use the :type attr to define a password input -->
-          <v-text-field class="my-input-box" label="Password"
-            v-model="password" :type="show1 ? 'text' : 'password'"></v-text-field>
+          <v-text-field
+            class="my-input-box"
+            label="Password"
+            v-model="password"
+            :type="show1 ? 'text' : 'password'"/>
             <div class="error" v-html="error"></div>
             <br>
             <v-btn class="cyan" @click="login" dark>Login</v-btn>
