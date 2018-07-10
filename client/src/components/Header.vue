@@ -15,13 +15,13 @@
 </template>
 
 <script>
-  export default {
-    methods: {
-      navigateTo (route) {
-        this.$router.push(route)
-      }
+export default {
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
