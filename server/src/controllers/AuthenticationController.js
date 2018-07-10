@@ -46,7 +46,8 @@ module.exports = {
 
             const userJson = user.toJSON()
             res.send({
-                user: userJson
+                user: userJson,
+                token: jwtSignUser(userJson)
             })
         } catch (err) {
             res.status(500).send({
