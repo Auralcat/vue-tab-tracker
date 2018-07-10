@@ -21,4 +21,8 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  .v-text-field__slot input {
+    border-bottom: 1px solid #000;
+  }
 </style>
