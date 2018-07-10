@@ -8,7 +8,7 @@ const config = require('../config/config')
 const app = express()
 
 // Use Morgan as log generator
-app.use(morgan('combine'))
+app.use(morgan('dev'))
 
 // Allow our Express app to easily parse any JSON requests sent
 app.use(bodyParser.json())
@@ -20,8 +20,8 @@ app.use(cors())
 require('./routes')(app)
 
 // Start listening
-sequelize.sync()
+sequelize.sync({force: true})
     .then(() => {
         app.listen(config.port)
-        console.log(`Server started on port ${config.port}`)
+        morgan(`Server started on port ${config.port}`)
     })
