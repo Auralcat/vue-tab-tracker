@@ -10,7 +10,7 @@
           <v-text-field class="my-input-box" label="Password" v-model="password"></v-text-field>
             <div class="error" v-html="error"></div>
             <br>
-            <v-btn class="cyan" @click="register" dark>Login</v-btn>
+            <v-btn class="cyan" @click="login" dark>Login</v-btn>
         </div>
       </div>
     </v-flex>

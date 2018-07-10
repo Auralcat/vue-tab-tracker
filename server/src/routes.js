@@ -8,9 +8,11 @@ module.exports = (app) => {
             message: "Hello Express!"
         })
     })
+
     app.post('/register',
              // This is a middleware!
              AuthenticationControllerPolicy.register,
              AuthenticationController.register)
 
+    app.post('/login', AuthenticationController.register)
 }
