@@ -25,4 +25,8 @@ export default {
   .v-text-field__slot input {
     border-bottom: 1px solid #000;
   }
+
+  .v-toolbar__title, .v-btn__content {
+    color: #fff;
+  }
 </style>
