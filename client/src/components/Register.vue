@@ -22,30 +22,32 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 export default {
-  data () {
-    return {
-      email: '',
-      password: '',
-      error: null,
-      /* v-text-field password signal var */
-      show1: false
-    }
-  },
-  methods: {
-    async register () {
-      try {
-        console.log(`Sending ${this.email} and ${this.password}`)
-        await AuthenticationService.register({
-          email: this.email,
-          password: this.password
-        })
-      } catch (error) {
-        console.log("Whoops!", error.response)
-        this.error = error.response.data.error
-      }
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: null,
+            /* v-text-field password signal var */
+            show1: false
+        }
+    },
+    methods: {
+        async register() {
+            try {
+                const response = await AuthenticationService.register({
+                    email: this.email,
+                    password: this.password
+                })
+                this.$store.dispatch('setToken', response.data.token)
+                this.$store.dispatch('setUser', response.data.user)
+
+            } catch (error) {
+                console.log("Whoops!", error.response)
+                this.error = error.response.data.error
+            }
+        }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
