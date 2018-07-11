@@ -35,11 +35,13 @@ export default {
   methods: {
     async register () {
       try {
+        console.log(`Sending ${this.email} and ${this.password}`)
         await AuthenticationService.register({
           email: this.email,
           password: this.password
         })
       } catch (error) {
+        console.log("Whoops!", error.response)
         this.error = error.response.data.error
       }
     }
