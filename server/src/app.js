@@ -8,7 +8,7 @@ const config = require('../config/config')
 const app = express()
 
 // Use Morgan as log generator
-app.use(morgan('dev'))
+app.use(morgan('common'))
 
 // Allow our Express app to easily parse any JSON requests sent
 app.use(bodyParser.json())
