@@ -12,8 +12,8 @@
              <p>Peace out</p>
              </div> -->
         <div v-for="song in songs" :key="song.title">
-          {{song.title}}
-          {{song.artist}}
+          {{song.title}} -
+          {{song.artist}} -
           {{song.album}}
         </div>
       </panel>
@@ -34,7 +34,17 @@ export default {
             title: 'No One Knows',
             artist: 'Queens Of The Stone Age',
             album: 'Songs For The Deaf'
-          }
+          },
+          {
+            title: 'Holy Wars (The Punishment Due)',
+            artist: 'Megadeth',
+            album: 'Rust In Peace'
+          },
+          {
+            title: 'Black Oblivion',
+            artist: 'Tony Iommi feat. Billy Corgan',
+            album: 'Iommi'
+          },
         ]
       }
     }
