@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import SongsService from "@/services/SongsService"
 import Panel from '@/components/Panel'
 export default {
   components: {
@@ -32,8 +33,9 @@ export default {
         songs: null
       }
     },
-    mounted () {
+    async mounted () {
       /* Do a request to the backend for all the songs */
+      this.songs = await SongsService.index()
     }
 }
 </script>
