@@ -11,6 +11,11 @@
              <h3>Seeya</h3>
              <p>Peace out</p>
              </div> -->
+        <div v-for="song in songs" :key="song.title">
+          {{song.title}}
+          {{song.artist}}
+          {{song.album}}
+        </div>
       </panel>
     </v-flex>
   </v-layout>
@@ -21,7 +26,18 @@ import Panel from '@/components/Panel'
 export default {
   components: {
     Panel
-  }
+  },
+    data () {
+      return {
+        songs: [
+          {
+            title: 'No One Knows',
+            artist: 'Queens Of The Stone Age',
+            album: 'Songs For The Deaf'
+          }
+        ]
+      }
+    }
 }
 </script>
 
