@@ -10,6 +10,7 @@
     <v-toolbar-items>
       <v-btn v-if="!$store.state.isUserLoggedIn" flat dark @click="navigateTo({name: 'register'})">Sign Up</v-btn>
       <v-btn v-if="!$store.state.isUserLoggedIn" flat dark @click="navigateTo({name: 'login'})">Login</v-btn>
+      <v-btn v-if="$store.state.isUserLoggedIn" flat dark @click="navigateTo({name: 'login'})">Log Out</v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
