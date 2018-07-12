@@ -29,24 +29,11 @@ export default {
   },
     data () {
       return {
-        songs: [
-          {
-            title: 'No One Knows',
-            artist: 'Queens Of The Stone Age',
-            album: 'Songs For The Deaf'
-          },
-          {
-            title: 'Holy Wars (The Punishment Due)',
-            artist: 'Megadeth',
-            album: 'Rust In Peace'
-          },
-          {
-            title: 'Black Oblivion',
-            artist: 'Tony Iommi feat. Billy Corgan',
-            album: 'Iommi'
-          },
-        ]
+        songs: null
       }
+    },
+    mounted () {
+      /* Do a request to the backend for all the songs */
     }
 }
 </script>
