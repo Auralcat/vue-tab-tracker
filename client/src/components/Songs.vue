@@ -2,10 +2,14 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel>
-        <h3>Yo yo yo</h3>
-        <p>
-          Nunc, non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id. Phasellus vestibulum lorem sed risus!
-        </p>
+        <div slot="hello">
+            <h3>Yo Yo Yo</h3>
+            <p>Hey there, I'm a paragraph tag</p>
+        </div>
+        <div slot="bye">
+            <h3>Seeya</h3>
+            <p>Peace out</p>
+        </div>
       </panel>
     </v-flex>
   </v-layout>
