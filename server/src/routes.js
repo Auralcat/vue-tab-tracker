@@ -1,5 +1,6 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
+const SongsController = require('./controllers/SongsController')
 
 module.exports = (app) => {
     // Lay the routes
@@ -8,6 +9,9 @@ module.exports = (app) => {
             message: "Hello Express!"
         })
     })
+
+    // Songs endpoint
+    app.get('/songs', SongsController.index)
 
     app.post('/register',
              // This is a middleware!
