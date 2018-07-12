@@ -4,20 +4,21 @@
             <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
-            <slot name="hello">No slot content defined.</slot>
-            <slot name="bye">No slot content defined.</slot>
+            <!-- Define the standard slot content in the base comp,
+                 customize in the comp you want to use it in.-->
+            <!-- <slot name="hello">No slot content defined.</slot>
+                 <slot name="bye">No slot content defined.</slot> -->
+            <slot>No slot content defined.</slot>
         </div>
     </div>
 </template>
 
 <script>
-  export default {
-      data () {
-          return {
-              title: 'hello world'
-          }
-      }
-  }
+export default {
+  props: [
+    'title'
+  ]
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
