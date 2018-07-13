@@ -1,3 +1,4 @@
+// You can set the environment variables in your machine or use an env.js file.
 module.exports = {
     port: 8081,
     db: {

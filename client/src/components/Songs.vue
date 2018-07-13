@@ -11,7 +11,7 @@
              <h3>Seeya</h3>
              <p>Peace out</p>
              </div> -->
-        <div v-for="song in songs" :key="song.title">
+        <div v-for="song in songs" :key="song.id">
           {{song.title}} -
           {{song.artist}} -
           {{song.album}}
