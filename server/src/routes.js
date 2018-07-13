@@ -19,4 +19,12 @@ module.exports = (app) => {
              AuthenticationController.register)
 
     app.post('/login', AuthenticationController.register)
+
+    // Get songs
+    app.get('/songs',
+             SongsController.index)
+    // Post songs
+    app.post('/songs',
+             SongsController.post)
+
 }

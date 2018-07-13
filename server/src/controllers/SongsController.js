@@ -7,7 +7,9 @@ module.exports = {
                 limit: 10
             })
         } catch (err) {
-
+            res.status(500).send({
+                error: "An error has occurred trying to fetch the songs"
+            })
         }
     },
     async post (req, res) {
@@ -16,7 +18,7 @@ module.exports = {
             res.send(song)
         } catch (err) {
             res.status(500).send({
-                error: "An error has occurred while trying to get songs"
+                error: "An error has occurred while trying to create the song"
             })
         }
     }
