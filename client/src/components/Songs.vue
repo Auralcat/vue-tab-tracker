@@ -35,7 +35,7 @@ export default {
     },
     async mounted () {
       /* Do a request to the backend for all the songs */
-      this.songs = await SongsService.index()
+      this.songs = (await SongsService.index()).data
     }
 }
 </script>
