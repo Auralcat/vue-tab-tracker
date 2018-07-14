@@ -17,3 +17,4 @@ selenium-debug.log
 *.sln
 /client/src/router/.tern-port
 /server/src/.tern-port
+tabtracker.sqlite

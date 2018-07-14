@@ -10,9 +10,6 @@ module.exports = (app) => {
         })
     })
 
-    // Songs endpoint
-    app.get('/songs', SongsController.index)
-
     app.post('/register',
              // This is a middleware!
              AuthenticationControllerPolicy.register,
@@ -26,5 +23,4 @@ module.exports = (app) => {
     // Post songs
     app.post('/songs',
              SongsController.post)
-
 }
