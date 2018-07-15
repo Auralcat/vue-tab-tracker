@@ -16,7 +16,7 @@
               <v-textarea label="Tab" v-model="song.tab" required :rules="[required]" />
               <v-textarea label="Lyrics" v-model="song.lyrics" required :rules="[required]" />
             </panel>
-            <div class="error" v-if="error">{{error}}</div>
+            <div class="danger-alert" v-if="error">{{error}}</div>
             <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
       </v-layout>
@@ -72,5 +72,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .danger-alert {
+    color: #ff0000;
+  }
 </style>
