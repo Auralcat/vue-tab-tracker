@@ -45,6 +45,7 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        /* Send user to home view later */
       } catch (error) {
         this.error = error.response.data.error
       }
