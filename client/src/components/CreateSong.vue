@@ -28,23 +28,29 @@ import SongsService from '@/services/SongsService'
 export default {
   data() {
     return {
-      title: '',
-      artist: '',
-      genre: '',
-      album: '',
-      albumImageUrl: '',
-      youtubeId: '',
-      lyrics: '',
-      tab: '',
+      song: {
+        title: '',
+        artist: '',
+        genre: '',
+        album: '',
+        albumImageUrl: '',
+        youtubeId: '',
+        lyrics: '',
+        tab: '',
+      }
     }
   },
   components: {
-    Panel,
-    SongsService
+    Panel
   },
   methods: {
-    create() {
+    async create() {
       /* Call API */
+      try {
+        await SongsService.post(this.song)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
