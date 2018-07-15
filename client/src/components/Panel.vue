@@ -2,7 +2,7 @@
     <div class="white elevation-2">
         <v-toolbar flat dense class="cyan" dark>
             <v-toolbar-title>{{title}}</v-toolbar-title>
-            <slot name="icon"></slot>
+            <slot name="action"></slot>
         </v-toolbar>
         <div class="pl-4 pr-4 pt-2 pb-2">
             <!-- Define the standard slot content in the base comp,

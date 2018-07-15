@@ -11,6 +11,10 @@
              <h3>Seeya</h3>
              <p>Peace out</p>
              </div> -->
+        <!-- You need to add the slot attr to the outermost element -->
+        <v-btn @click="navigateTo({name: 'songs-create'})" absolute class="cyan accent-2" fab light medium middle right slot="action">
+          <v-icon>add</v-icon>
+        </v-btn>
         <div v-for="song in songs" :key="song.id">
           {{song.title}} -
           {{song.artist}} -
@@ -22,22 +26,27 @@
 </template>
 
 <script>
-import SongsService from "@/services/SongsService"
-import Panel from '@/components/Panel'
-export default {
-  components: {
-    Panel
-  },
+  import SongsService from "@/services/SongsService"
+  import Panel from '@/components/Panel'
+  export default {
+    components: {
+      Panel
+    },
     data () {
       return {
         songs: null
+      }
+    },
+    methods: {
+      navigateTo (route) {
+        this.$router.push(route)
       }
     },
     async mounted () {
       /* Do a request to the backend for all the songs */
       this.songs = (await SongsService.index()).data
     }
-}
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
