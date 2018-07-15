@@ -48,6 +48,9 @@ export default {
       /* Call API */
       try {
         await SongsService.post(this.song)
+        this.$router.push({
+          name: 'songs'
+        })
       } catch (err) {
         console.log(err)
       }
