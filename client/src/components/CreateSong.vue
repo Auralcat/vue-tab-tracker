@@ -13,8 +13,8 @@
           </v-flex>
           <v-flex xs8>
             <panel title="Song Structure" class="ml-2">
-              <v-text-field label="Tab" multi-line v-model="song.tab" />
-              <v-text-field label="Lyrics" multi-line v-model="song.lyrics" />
+              <v-textarea label="Tab" v-model="song.tab" />
+              <v-textarea label="Lyrics" v-model="song.lyrics" />
             </panel>
             <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
