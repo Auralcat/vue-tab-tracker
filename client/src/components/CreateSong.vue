@@ -3,18 +3,18 @@
       <v-layout>
           <v-flex xs4>
               <panel title="Song Metadata">
-                  <v-text-field label="Title" v-model="title" />
-                  <v-text-field label="Artist" v-model="artist" />
-                  <v-text-field label="Genre" v-model="genre" />
-                  <v-text-field label="Album" v-model="album" />
-                  <v-text-field label="AlbumImageUrl" v-model="albumImageUrl" />
-                  <v-text-field label="YoutubeId" v-model="youtubeId" />
+                  <v-text-field label="Title" v-model="song.title" />
+                  <v-text-field label="Artist" v-model="song.artist" />
+                  <v-text-field label="Genre" v-model="song.genre" />
+                  <v-text-field label="Album" v-model="song.album" />
+                  <v-text-field label="AlbumImageUrl" v-model="song.albumImageUrl" />
+                  <v-text-field label="YoutubeId" v-model="song.youtubeId" />
               </panel>
           </v-flex>
           <v-flex xs8>
             <panel title="Song Structure" class="ml-2">
-              <v-text-field label="Tab" multi-line v-model="tab" />
-              <v-text-field label="Lyrics" multi-line v-model="lyrics" />
+              <v-text-field label="Tab" multi-line v-model="song.tab" />
+              <v-text-field label="Lyrics" multi-line v-model="song.lyrics" />
             </panel>
             <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
