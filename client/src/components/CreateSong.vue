@@ -16,6 +16,7 @@
               <v-textarea label="Tab" v-model="song.tab" required :rules="[required]" />
               <v-textarea label="Lyrics" v-model="song.lyrics" required :rules="[required]" />
             </panel>
+            <div class="error" v-if="error">{{error}}</div>
             <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
       </v-layout>
@@ -38,6 +39,7 @@ export default {
         lyrics: '',
         tab: '',
       },
+      error: null,
       required: (value) => !!value || 'Required.'
     }
   },
@@ -46,6 +48,14 @@ export default {
   },
   methods: {
     async create() {
+      this.error = null
+      const areAllFieldsFilledIn = Object
+        .keys(this.song)
+        .every(key => !!this.song[key])
+      if (!areAllFieldsFilledIn) {
+        this.error = 'Please fill in all the required fields.'
+        return
+      }
       /* Call API */
       try {
         await SongsService.post(this.song)
