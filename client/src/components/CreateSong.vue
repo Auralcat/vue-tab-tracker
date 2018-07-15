@@ -3,18 +3,18 @@
       <v-layout>
           <v-flex xs4>
               <panel title="Song Metadata">
-                  <v-text-field label="Title" v-model="song.title" />
-                  <v-text-field label="Artist" v-model="song.artist" />
-                  <v-text-field label="Genre" v-model="song.genre" />
-                  <v-text-field label="Album" v-model="song.album" />
-                  <v-text-field label="AlbumImageUrl" v-model="song.albumImageUrl" />
-                  <v-text-field label="YoutubeId" v-model="song.youtubeId" />
+                  <v-text-field label="Title" v-model="song.title" required :rules="[required]" />
+                  <v-text-field label="Artist" v-model="song.artist" required :rules="[required]" />
+                  <v-text-field label="Genre" v-model="song.genre" required :rules="[required]" />
+                  <v-text-field label="Album" v-model="song.album" required :rules="[required]" />
+                  <v-text-field label="AlbumImageUrl" v-model="song.albumImageUrl" required :rules="[required]" />
+                  <v-text-field label="YoutubeId" v-model="song.youtubeId" required :rules="[required]" />
               </panel>
           </v-flex>
           <v-flex xs8>
             <panel title="Song Structure" class="ml-2">
-              <v-textarea label="Tab" v-model="song.tab" />
-              <v-textarea label="Lyrics" v-model="song.lyrics" />
+              <v-textarea label="Tab" v-model="song.tab" required :rules="[required]" />
+              <v-textarea label="Lyrics" v-model="song.lyrics" required :rules="[required]" />
             </panel>
             <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
@@ -37,7 +37,8 @@ export default {
         youtubeId: '',
         lyrics: '',
         tab: '',
-      }
+      },
+      required: (value) => !!value || 'Required.'
     }
   },
   components: {
