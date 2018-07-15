@@ -16,6 +16,7 @@
               <v-text-field label="Tab" multi-line v-model="tab" />
               <v-text-field label="Lyrics" multi-line v-model="lyrics" />
             </panel>
+            <v-btn class="cyan" dark @click="create">Create Song</v-btn>
           </v-flex>
       </v-layout>
     </div>
@@ -24,21 +25,26 @@
 <script>
 import Panel from '@/components/Panel'
 export default {
-    data () {
-      return {
-          title: '',
-          artist: '',
-          genre: '',
-          album: '',
-          albumImageUrl: '',
-          youtubeId: '',
-          lyrics: '',
-          tab: '',
-      }
-    },
-    components: {
-      Panel
+  data() {
+    return {
+      title: '',
+      artist: '',
+      genre: '',
+      album: '',
+      albumImageUrl: '',
+      youtubeId: '',
+      lyrics: '',
+      tab: '',
     }
+  },
+  components: {
+    Panel
+  },
+  methods: {
+    create() {
+      /* Call API */
+    }
+  }
 }
 </script>
 
