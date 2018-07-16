@@ -26,6 +26,7 @@
             <v-flex xs6>
               <img class="album-image" alt="Album Image" :src="song.albumImageUrl"/>
             </v-flex>
+            <v-btn class="cyan" dark @click="navigateTo({name: 'song', params: {songId: song.id}})">View Song</v-btn>
           </v-layout>
 
         </div>
