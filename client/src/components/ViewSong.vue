@@ -1,18 +1,19 @@
 <template>
   <v-layout>
-    <v-layout>
-      <v-flex xs6>
-        <panel title="Song Metadata">
-          <div class="song-title">{{ song.title  }}</div>
-          <div class="song-artist">{{ song.artist }}</div>
-          <div class="song-genre">{{ song.genre }}</div>
-          <v-btn class="cyan" @click="navigateTo({name: 'song', params: {songId: song.id}})">View</v-btn>
-        </panel>
-      </v-flex>
-      <v-flex xs6>
-        <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
-      </v-flex>
-    </v-layout>
+    <v-flex xs6>
+      <panel title="Song Metadata">
+        <v-layout>
+          <v-flex xs6>
+            <div class="song-title">{{ song.title  }}</div>
+            <div class="song-artist">{{ song.artist }}</div>
+            <div class="song-genre">{{ song.genre }}</div>
+          </v-flex>
+          <v-flex xs6>
+            <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
+          </v-flex>
+        </v-layout>
+      </panel>
+    </v-flex>
     <v-flex xs6 clas="ml-2">
       <panel title="Tabs">
         <v-textarea class="tab-area" readonly label="Tab" v-model="song.tab"></v-textarea>
@@ -67,7 +68,7 @@
   }
 
   .tab-area {
-    width: 80%;
+    width: 100%;
     font-family: monospace;
     border: none;
     height: 600px;
