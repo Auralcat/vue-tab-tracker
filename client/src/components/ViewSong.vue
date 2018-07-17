@@ -1,25 +1,36 @@
 <template>
-  <v-layout>
-    <v-flex xs6>
-      <panel title="Song Metadata">
-        <v-layout>
-          <v-flex xs6>
-            <div class="song-title">{{ song.title  }}</div>
-            <div class="song-artist">{{ song.artist }}</div>
-            <div class="song-genre">{{ song.genre }}</div>
-          </v-flex>
-          <v-flex xs6>
-            <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
-          </v-flex>
-        </v-layout>
-      </panel>
-    </v-flex>
-    <v-flex xs6 clas="ml-2">
-      <panel title="Tabs">
-        <v-textarea class="tab-area" readonly label="Tab" v-model="song.tab"></v-textarea>
-      </panel>
-    </v-flex>
-  </v-layout>
+  <div>
+    <v-layout>
+      <v-flex xs6>
+        <panel title="Song Metadata">
+          <v-layout>
+            <v-flex xs6>
+              <div class="song-title">{{ song.title  }}</div>
+              <div class="song-artist">{{ song.artist }}</div>
+              <div class="song-genre">{{ song.genre }}</div>
+            </v-flex>
+            <v-flex xs6>
+              <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
+            </v-flex>
+          </v-layout>
+        </panel>
+      </v-flex>
+
+      <v-layout>
+        <v-flex xs6>
+          <panel title="Song Metadata">
+            <!-- Youtube embedded -->
+          </panel>
+        </v-flex>
+
+        <v-flex xs6 clas="ml-2">
+          <panel title="Tabs">
+            <v-textarea class="tab-area" readonly label="Tab" v-model="song.tab"></v-textarea>
+          </panel>
+        </v-flex>
+      </v-layout>
+    </v-layout>
+  </div>
 </template>
 
 <script>
