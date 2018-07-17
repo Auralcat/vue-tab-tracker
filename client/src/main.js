@@ -7,11 +7,13 @@ import Vuetify from 'vuetify'
 import { sync } from 'vuex-router-sync'
 import 'vuetify/dist/vuetify.min.css'
 import store from '@/store/store'
-
+import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.config.productionTip = false
 
 // Enable Vuetify
 Vue.use(Vuetify)
+// Do not use VueYouTubeEmbed globally
+Vue.use(VueYouTubeEmbed, { global: false })
 
 sync(store, router)
 
