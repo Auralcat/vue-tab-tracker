@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 // Enable Vuetify
 Vue.use(Vuetify)
 // Do not use VueYouTubeEmbed globally
-Vue.use(VueYouTubeEmbed, { global: false })
+Vue.use(VueYouTubeEmbed)
 
 sync(store, router)
 

@@ -1,5 +1,7 @@
 <template>
-  <panel title="YouTube Video">{{youtubeId}}</panel>
+  <panel title="YouTube Video">
+    <youtube :video-id="youtubeId" :player-width="800" :player-height="330"></youtube>
+  </panel>
 </template>
 
 <script>
