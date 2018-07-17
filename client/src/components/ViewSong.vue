@@ -1,15 +1,22 @@
 <template>
   <v-layout>
-    <v-flex xs6>
-      <panel title="Song Metadata">
-        <div class="song-title">{{ song.title  }}</div>
-        <div class="song-artist">{{ song.artist }}</div>
-        <div class="song-genre">{{ song.genre }}</div>
-        <v-btn class="cyan" @click="navigateTo({name: 'song', params: {songId: song.id}})">View</v-btn>
+    <v-layout>
+      <v-flex xs6>
+        <panel title="Song Metadata">
+          <div class="song-title">{{ song.title  }}</div>
+          <div class="song-artist">{{ song.artist }}</div>
+          <div class="song-genre">{{ song.genre }}</div>
+          <v-btn class="cyan" @click="navigateTo({name: 'song', params: {songId: song.id}})">View</v-btn>
+        </panel>
+      </v-flex>
+      <v-flex xs6>
+        <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
+      </v-flex>
+    </v-layout>
+    <v-flex xs6 clas="ml-2">
+      <panel title="Tabs">
+        <v-textarea class="tab-area" readonly label="Tab" v-model="song.tab"></v-textarea>
       </panel>
-    </v-flex>
-    <v-flex>
-      <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
     </v-flex>
   </v-layout>
 </template>
@@ -36,5 +43,37 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .song {
+    padding: 20px;
+    height: 330px;
+    overflow: hidden;
+  }
 
+  .song-title {
+    font-size: 30px;
+  }
+
+  .song-artist {
+    font-size: 24px;
+  }
+
+  .song-genre {
+    font-size: 18px;
+  }
+
+  .album-image {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .tab-area {
+    width: 80%;
+    font-family: monospace;
+    border: none;
+    height: 600px;
+    border-style: none;
+    border-color: transparent;
+    overflow: auto;
+    padding: 40px;
+  }
 </style>
