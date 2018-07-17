@@ -18,7 +18,7 @@
 
       <v-layout>
         <v-flex xs6>
-          <panel title="Song Metadata">
+          <panel title="Youtube video">
             <!-- Youtube embedded -->
           </panel>
         </v-flex>
