@@ -17,7 +17,7 @@
               <v-textarea label="Lyrics" v-model="song.lyrics" required :rules="[required]" />
             </panel>
             <div class="danger-alert" v-if="error">{{error}}</div>
-            <v-btn class="cyan" dark @click="create">Create Song</v-btn>
+            <v-btn class="cyan" dark @click="create">Save Song</v-btn>
           </v-flex>
       </v-layout>
     </div>
@@ -47,7 +47,7 @@ export default {
     Panel
   },
   methods: {
-    async create () {
+    async save () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
@@ -56,12 +56,21 @@ export default {
         this.error = 'Please fill in all the required fields.'
         return
       }
-      /* Call API */
+
       try {
-        await SongsService.post(this.song)
+        /* Update song data */
+        await SongsService.put(songId)
         this.$router.push({
           name: 'songs'
         })
+      } catch (err) {
+        console.log(err)
+      }
+    },
+    async mounted () {
+      try {
+        const songId = this.$store.state.route.params.songId
+        this.song = (await SongsService.show(songId)).data
       } catch (err) {
         console.log(err)
       }
