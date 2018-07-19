@@ -27,7 +27,7 @@
 import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 export default {
-  data() {
+  data () {
     return {
       song: {
         title: '',
@@ -37,7 +37,7 @@ export default {
         albumImageUrl: '',
         youtubeId: '',
         lyrics: '',
-        tab: '',
+        tab: ''
       },
       error: null,
       required: (value) => !!value || 'Required.'
@@ -47,7 +47,7 @@ export default {
     Panel
   },
   methods: {
-    async create() {
+    async create () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)

@@ -15,39 +15,38 @@
 </template>
 
 <script>
-  import AuthenticationService from '@/services/AuthenticationService'
-  import Panel from '@/components/Panel'
+import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 
-  export default {
-    data() {
-      return {
-        email: '',
-        password: '',
-        error: null,
-        /* v-text-field password signal var */
-        show1: false
-      }
-    },
-    methods: {
-      async register() {
-        try {
-          const response = await AuthenticationService.register({
-            email: this.email,
-            password: this.password
-          })
-          this.$store.dispatch('setToken', response.data.token)
-          this.$store.dispatch('setUser', response.data.user)
-
-        } catch (error) {
-          console.log("Whoops!", error.response)
-          this.error = error.response.data.error
-        }
-      }
-    },
-    components: {
-      Panel
+export default {
+  data () {
+    return {
+      email: '',
+      password: '',
+      error: null,
+      /* v-text-field password signal var */
+      show1: false
     }
+  },
+  methods: {
+    async register () {
+      try {
+        const response = await AuthenticationService.register({
+          email: this.email,
+          password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
+      } catch (error) {
+        console.log('Whoops!', error.response)
+        this.error = error.response.data.error
+      }
+    }
+  },
+  components: {
+    Panel
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
