@@ -43,7 +43,8 @@
       Panel,
       SongMetadata,
       YouTube,
-      Lyrics
+      Lyrics,
+      Tab
     }
   }
 </script>
