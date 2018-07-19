@@ -14,7 +14,6 @@ import SongsSearchPanel from './SongsSearchPanel'
 import Panel from '@/components/Panel'
 export default {
   components: {
-    Panel,
     SongsPanel,
     SongsSearchPanel
   },
