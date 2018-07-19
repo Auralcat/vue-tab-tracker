@@ -5,6 +5,8 @@
         <div class="song-title">{{ song.title  }}</div>
         <div class="song-artist">{{ song.artist }}</div>
         <div class="song-genre">{{ song.genre }}</div>
+
+        <v-btn class="cyan" dark @click="navigateTo({name: 'song-edit', params: { songId: song.id }})">View</v-btn>
       </v-flex>
       <v-flex xs6>
         <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
@@ -21,6 +23,11 @@ export default {
   ],
   components: {
     Panel
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
   }
 }
 </script>
