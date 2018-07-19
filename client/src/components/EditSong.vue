@@ -17,7 +17,7 @@
               <v-textarea label="Lyrics" v-model="song.lyrics" required :rules="[required]" />
             </panel>
             <div class="danger-alert" v-if="error">{{error}}</div>
-            <v-btn class="cyan" dark @click="create">Save Song</v-btn>
+            <v-btn class="cyan" dark @click="save">Save Song</v-btn>
           </v-flex>
       </v-layout>
     </div>
@@ -57,23 +57,27 @@ export default {
         return
       }
 
+      const songId = this.$store.state.route.params.songId
       try {
         /* Update song data */
         await SongsService.put(songId)
         this.$router.push({
-          name: 'songs'
+          name: 'songs',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
         console.log(err)
       }
     },
-    async mounted () {
-      try {
-        const songId = this.$store.state.route.params.songId
-        this.song = (await SongsService.show(songId)).data
-      } catch (err) {
-        console.log(err)
-      }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.show(songId)).data
+    } catch (err) {
+      console.log(err)
     }
   }
 }
