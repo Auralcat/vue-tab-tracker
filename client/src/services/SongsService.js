@@ -2,7 +2,7 @@ import Api from '@/services/Api'
 
 export default {
   // Get all songs from the backend
-  index () {
+  index (search) {
     return Api().get('songs', {
       params: {
         search: search
