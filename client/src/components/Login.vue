@@ -15,7 +15,7 @@
             label="Password"
             v-model="password"
             :type="show1 ? 'text' : 'password'"/>
-            <div class="error" v-html="error"></div>
+            <div class="danger-alert" v-html="error"></div>
             <br>
             <v-btn class="cyan" @click="login" dark>Login</v-btn>
         </div>

@@ -6,7 +6,7 @@
           <v-text-field class="my-input-box" label="Email" v-model="email" />
           <v-text-field class="my-input-box" label="Password" v-model="password" :type="show1 ? 'text' : 'password'" autocomplete="new-password" />
         </form>
-        <div class="error" v-html="error"></div>
+        <div class="danger-alert" v-html="error"></div>
         <br />
         <v-btn class="cyan" @click="register" dark>Register</v-btn>
       </panel>
@@ -36,6 +36,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+          name: 'songs'
+        })
       } catch (error) {
         console.log('Whoops!', error.response)
         this.error = error.response.data.error
