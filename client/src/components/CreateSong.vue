@@ -25,6 +25,7 @@
 
 <script>
 import SongsService from '@/services/SongsService'
+
 export default {
   data () {
     return {
@@ -41,9 +42,6 @@ export default {
       error: null,
       required: (value) => !!value || 'Required.'
     }
-  },
-  components: {
-    Panel
   },
   methods: {
     async create () {

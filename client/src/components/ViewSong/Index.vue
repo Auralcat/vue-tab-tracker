@@ -28,6 +28,7 @@ import YouTube from './YouTube'
 import Lyrics from './Lyrics'
 import Tab from './Tab'
 import SongsService from '@/services/SongsService'
+
 export default {
   data () {
     return {
@@ -40,7 +41,6 @@ export default {
     console.log(this.song)
   },
   components: {
-    Panel,
     SongMetadata,
     YouTube,
     Lyrics,

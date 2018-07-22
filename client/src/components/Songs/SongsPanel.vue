@@ -38,9 +38,6 @@
 <script>
 import SongsService from '@/services/SongsService'
 export default {
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null
