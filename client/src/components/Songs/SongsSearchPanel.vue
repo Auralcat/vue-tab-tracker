@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
     data () {
       return {
@@ -13,7 +14,7 @@ export default {
     },
     watch: {
       /* Monitor the input search string */
-      search (value) {
+      search: _.debounce(async function (value) {
         const route = {
           name: 'songs'
         }
@@ -24,7 +25,7 @@ export default {
         }
         /* Push search string to current URL address */
         this.$router.push(route)
-      },
+      }, 700),
       /* If received a search string URL, put it in search field */
       '$route.query.search': {
         immediate: true,
