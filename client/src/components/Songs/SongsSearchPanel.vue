@@ -1,5 +1,5 @@
 <template>
-
+  <panel title="Songs"></panel>
 </template>
 
 <script>

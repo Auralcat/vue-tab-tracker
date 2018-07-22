@@ -11,7 +11,6 @@
 import SongsService from '@/services/SongsService'
 import SongsPanel from './SongsPanel'
 import SongsSearchPanel from './SongsSearchPanel'
-import Panel from '@/components/Panel'
 export default {
   components: {
     SongsPanel,
