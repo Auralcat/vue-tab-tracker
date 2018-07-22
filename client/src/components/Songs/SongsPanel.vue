@@ -12,7 +12,7 @@
              <p>Peace out</p>
              </div> -->
         <!-- You need to add the slot attr to the outermost element -->
-        <v-btn @click="navigateTo({name: 'songs-create'})" absolute class="cyan accent-2" fab light medium middle right slot="action">
+        <v-btn :to="{name: 'songs-create'}" absolute class="cyan accent-2" fab light medium middle right slot="action">
           <v-icon>add</v-icon>
         </v-btn>
         <div class="song" v-for="song in songs" :key="song.id">
@@ -26,7 +26,7 @@
             <v-flex xs6>
               <img class="album-image" alt="Album Image" :src="song.albumImageUrl"/>
             </v-flex>
-            <v-btn class="cyan" dark @click="navigateTo({name: 'song', params: {songId: song.id}})">View Song</v-btn>
+            <v-btn class="cyan" dark :to="{name: 'song', params: {songId: song.id}}">View Song</v-btn>
           </v-layout>
 
         </div>
@@ -41,11 +41,6 @@ export default {
   data () {
     return {
       songs: null
-    }
-  },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
     }
   },
   watch: {
