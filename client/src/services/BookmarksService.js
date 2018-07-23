@@ -5,5 +5,13 @@ export default {
     return Api().get('bookmarks', {
       params: params
     })
-  }
+  },
+  post (bookmark) {
+    return Api().post('bookmarks', {
+      params: bookmark
+    })
+  },
+  delete (bookmarkId) {
+    return Api().get(`bookmarks/${bookmarkId}`)
+  },
 }
