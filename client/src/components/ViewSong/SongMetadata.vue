@@ -22,12 +22,19 @@ export default {
   props: [
     'song'
   ],
+  /* Use the computed hook when you need to display more complicated logic */
+  computed: {
+    /* Spread operator */
+    ...mapState([
+      'isUserLoggedIn'
+    ])
+  },
   methods: {
     bookmark () {
-
+      console.log("Bookmarked!")
     },
     unbookmark () {
-
+      console.log("Removed from bookmarks.")
     }
   }
 }
