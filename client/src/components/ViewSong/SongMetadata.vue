@@ -18,6 +18,9 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
+
 export default {
   props: [
     'song'
@@ -29,6 +32,9 @@ export default {
       'isUserLoggedIn'
     ])
   },
+  mounted() {
+
+  }
   methods: {
     bookmark () {
       console.log("Bookmarked!")
