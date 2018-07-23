@@ -38,19 +38,36 @@ export default {
     ])
   },
   async mounted() {
-    const bookmark = (await BookmarksService.index({
-      songId: 1,
-      userId: 1
-    })).data
-    this.isBookmarked = !!bookmark
-    console.log('bookmark', this.isBookmarked)
+    try {
+      const bookmark = (await BookmarksService.index({
+        songId: this.song.id,
+        userId: this.$store.state.user.id
+      })).data
+      this.isBookmarked = !!bookmark
+    } catch (err) {
+      console.log(err)
+    }
   },
   methods: {
-    bookmark () {
-      console.log("Bookmarked!")
+    async bookmark () {
+      try {
+        await BookmarksService.post({
+          songId: this.song.id,
+          userId: this.$store.state.user.id
+        })
+      } catch (err) {
+        console.log(err)
+      }
     },
-    unbookmark () {
-      console.log("Removed from bookmarks.")
+    async unbookmark () {
+      try {
+        await BookmarksService.delete({
+          songId: this.song.id,
+          userId: this.$store.state.user.id
+        })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 }
