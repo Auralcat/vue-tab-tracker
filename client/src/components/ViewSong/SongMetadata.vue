@@ -7,8 +7,8 @@
         <div class="song-genre">{{ song.genre }}</div>
 
         <v-btn class="cyan" dark :to="{name: 'song-edit', params () { return { songId: song.id }}}">Edit</v-btn>
-        <v-btn v-if="$store.state.isUserLoggedIn && !isBookmarked" class="cyan" dark @click="bookmark">Bookmark</v-btn>
-        <v-btn v-if="$store.state.isUserLoggedIn && isBookmarked" class="cyan" dark @click="unbookmark">Unbookmark</v-btn>
+        <v-btn v-if="$store.state.isUserLoggedIn && !bookmark" class="cyan" dark @click="setAsBookmark">Set as Bookmark</v-btn>
+        <v-btn v-if="$store.state.isUserLoggedIn && bookmark" class="cyan" dark @click="unsetAsBookmark">Unset Bookmark</v-btn>
       </v-flex>
       <v-flex xs6>
         <img class="album-image" alt="album image" :src="song.albumImageUrl"/>
@@ -24,7 +24,7 @@ import BookmarksService from '@/services/BookmarksService'
 export default {
   data () {
     return {
-      isBookmarked: false
+      bookmark: null
     }
   },
   props: [
@@ -42,32 +42,29 @@ export default {
       return
     }
     try {
-      const bookmark = (await BookmarksService.index({
+      this.bookmark = (await BookmarksService.index({
         songId: this.song.id,
         userId: this.$store.state.user.id
       })).data
-      this.isBookmarked = !!bookmark
     } catch (err) {
       console.log(err)
     }
   },
   methods: {
-    async bookmark () {
+    async setAsBookmark () {
       try {
-        await BookmarksService.post({
+        this.bookmark = (await BookmarksService.post({
           songId: this.song.id,
           userId: this.$store.state.user.id
-        })
+        })).data
       } catch (err) {
         console.log(err)
       }
     },
-    async unbookmark () {
+    async unsetAsBookmark () {
       try {
-        await BookmarksService.delete({
-          songId: this.song.id,
-          userId: this.$store.state.user.id
-        })
+        await BookmarksService.delete(this.bookmark.id)
+        this.bookmark = null
       } catch (err) {
         console.log(err)
       }
