@@ -14,36 +14,43 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        headers: [
-          {
-            text: 'Title',
-            value: 'title'
-          },
-          {
-            text: 'Artist',
-            value: 'artist'
-          }
-        ],
-        pagination: {
-          sortBy: 'date',
-          descending: true
+import {mapState} from 'vuex'
+import BookmarksService from '@/services/BookmarksService'
+
+export default {
+  data () {
+    return {
+      headers: [
+        {
+          text: 'Title',
+          value: 'title'
         },
-        bookmarks: [
-          {
-            title: 'Hello Bookmark',
-            artist: 'Rando'
-          },
-          {
-            title: 'Hello Dolly',
-            artist: 'Louis Armstrong'
-          }
-        ]
-      }
+        {
+          text: 'Artist',
+          value: 'artist'
+        }
+      ],
+      pagination: {
+        sortBy: 'date',
+        descending: true
+      },
+      bookmarks: []
     }
-  }
+  },
+  async mounted () {
+    if (this.isUserLoggedIn) {
+      this.bookmarks = (await BookmarksService.index({
+        userId: this.user.id
+      })).data
+    }
+  },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
+  },
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
