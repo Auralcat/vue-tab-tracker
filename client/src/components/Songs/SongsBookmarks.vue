@@ -1,12 +1,41 @@
 <template>
   <panel title="Bookmarks">
+    <v-data-table :headers="headers" :pagination.sync="pagination" :items="bookmarks">
 
+    </v-data-table>
   </panel>
 </template>
 
 <script>
   export default {
-
+    data () {
+      return {
+        headers: [
+          {
+            text: 'Title',
+            value: 'title'
+          },
+          {
+            text: 'Artist',
+            value: 'artist'
+          }
+        ],
+        pagination: {
+          sortBy: 'date',
+          descending: true
+        },
+        bookmarks: [
+          {
+            title: 'Hello Bookmark',
+            artist: 'Rando'
+          },
+          {
+            title: 'Hello Dolly',
+            artist: 'Louis Armstrong'
+          }
+        ]
+      }
+    }
   }
 </script>
 

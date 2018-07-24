@@ -1,9 +1,9 @@
 <template>
   <v-layout column>
-    <v-flex>
-      <song-bookmarks/>
+    <v-flex xs6>
+      <songs-bookmarks/>
     </v-flex>
-    <v-flex xs6 offset-xs3>
+    <v-flex xs6>
       <songs-search-panel/>
       <songs-panel class="mt-2" />
     </v-flex>
