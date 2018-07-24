@@ -12,6 +12,7 @@ module.exports = {
       })
       res.send(bookmark)
     } catch (err) {
+
       res.status(500).send({
         error: 'an error has occured trying to fetch the bookmarks'
       })
@@ -19,7 +20,8 @@ module.exports = {
   },
   async post (req, res) {
     try {
-      const {songId, userId} = req.body
+      const userId = req.user.id
+      const {songId} = req.body
       const bookmark = await Bookmark.findOne({
         where: {
           SongId: songId,

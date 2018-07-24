@@ -6,12 +6,10 @@ export default {
       params: bookmark
     })
   },
-  post (params) {
-    return Api().post('bookmarks', {
-      params: params
-    })
+  post (bookmark) {
+    return Api().post('bookmarks', bookmark)
   },
   delete (bookmarkId) {
     return Api().get(`bookmarks/${bookmarkId}`)
-  },
+  }
 }

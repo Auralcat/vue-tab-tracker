@@ -37,25 +37,26 @@ export default {
       'isUserLoggedIn'
     ])
   },
-  async mounted() {
-    if (!this.isUserLoggedIn) {
-      return
-    }
-    try {
-      this.bookmark = (await BookmarksService.index({
-        songId: this.song.id,
-        userId: this.$store.state.user.id
-      })).data
-    } catch (err) {
-      console.log(err)
+  watch: {
+    async song () {
+      if (!this.isUserLoggedIn) {
+        return
+      }
+      try {
+        this.bookmark = (await BookmarksService.index({
+          songId: this.song.id,
+          userId: this.$store.state.user.id
+        })).data
+      } catch (err) {
+        console.log(err)
+      }
     }
   },
   methods: {
     async setAsBookmark () {
       try {
         this.bookmark = (await BookmarksService.post({
-          songId: this.song.id,
-          userId: this.$store.state.user.id
+          songId: this.song.id
         })).data
       } catch (err) {
         console.log(err)
