@@ -1,7 +1,14 @@
 <template>
   <panel title="Bookmarks">
     <v-data-table :headers="headers" :pagination.sync="pagination" :items="bookmarks">
-
+      <template slot="items" scope="props">
+        <td class="text-xs-right">
+          {{props.item.title}}
+        </td>
+        <td class="text-xs-right">
+          {{props.item.artist}}
+        </td>
+      </template>
     </v-data-table>
   </panel>
 </template>
