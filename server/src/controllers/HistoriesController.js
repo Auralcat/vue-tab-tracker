@@ -8,7 +8,7 @@ const _ = require('lodash')
 module.exports = {
   async index (req, res) {
     try {
-      const {userId} = req.query
+      const userId = req.user.id
       const histories = await History.findAll({
         where: {
           UserId: userId

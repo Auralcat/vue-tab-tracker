@@ -1,6 +1,6 @@
 <template>
   <v-layout column>
-    <v-flex xs6>
+    <v-flex xs6 v-if="isUserLoggedIn">
       <songs-bookmarks/>
       <recently-viewed-songs class="mt-2" />
     </v-flex>
@@ -17,6 +17,7 @@ import SongsPanel from './SongsPanel'
 import SongsBookmarks from './SongsBookmarks'
 import SongsSearchPanel from './SongsSearchPanel'
 import RecentlyViewedSongs from './RecentlyViewedSongs'
+import {mapState} from 'vuex'
 
 export default {
   components: {
@@ -33,6 +34,13 @@ export default {
   async mounted () {
     /* Do a request to the backend for all the songs */
     this.songs = (await SongsService.index()).data
+  },
+  computed: {
+    /* Spread operator */
+    ...mapState([
+      'isUserLoggedIn',
+      'user'
+    ])
   }
 }
 </script>
