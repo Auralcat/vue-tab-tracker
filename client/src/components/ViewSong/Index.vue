@@ -29,6 +29,7 @@ import Lyrics from './Lyrics'
 import Tab from './Tab'
 import SongsService from '@/services/SongsService'
 import SongHistoryService from '@/services/SongHistoryService'
+import {mapState} from 'vuex'
 
 export default {
   data () {
