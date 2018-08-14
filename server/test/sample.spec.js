@@ -77,6 +77,14 @@ describe("Register endpoint", function() {
       })
   });
 
+  it("Successful POST returns a hashed password", function() {
+    // code goes here
+  });
+
+  it("Successful POST returns a token property", function() {
+    // code goes here
+  });
+
   it("Can't register with invalid password", function(done) {
     request(app)
       .post('/register')
